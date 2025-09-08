@@ -1,0 +1,207 @@
+:root {
+      --primary-blue: #2A5D9F;
+      --bright-orange: #F2994A;
+      --soft-yellow: #F2C94C;
+      --neutral-gray: #F4F6F8;
+      --dark-charcoal: #333333;
+      --white: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--neutral-gray);
+      color: var(--dark-charcoal);
+    }
+
+nav {
+  background-color: #2A5D9F;
+  width: 100vw;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px; /* Add spacing inside the navbar */
+  box-sizing: border-box;
+}
+
+.navbar-logo {
+  width: 32px;
+  height: 32px;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-right: 8px;
+  background-color: #fff;
+}
+
+.nav-logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo-container a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #FFFFFF;
+  font-family: sans-serif;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-links li {
+  font-family: sans-serif;
+  cursor: pointer;
+  color: #FFFFFF;
+}
+.nav-links li:hover {
+    text-decoration: underline;
+}
+.nav-user-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-left: 16px;
+  cursor: pointer;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #FFFFFF; /* White text */
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #F2994A; /* Bright Orange on hover */
+  text-decoration: underline;
+}
+
+    main {
+      max-width: 1200px;
+      margin: 32px auto;
+      padding: 0 24px;
+    }
+
+    h1 {
+      color: var(--primary-blue);
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    /* Dashboard overview cards */
+    .dashboard-cards {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      flex: 1 1 280px;
+      background: var(--white);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(42, 93, 159, 0.15);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .card h2 {
+      margin: 0 0 12px;
+      color: var(--primary-blue);
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      margin: 4px 0;
+    }
+
+    /* Grades Table */
+    .grades-section {
+      background: var(--white);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(42, 93, 159, 0.15);
+      margin-bottom: 40px;
+    }
+
+    .grades-section h2 {
+      color: var(--primary-blue);
+      margin-bottom: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1rem;
+    }
+
+    table thead {
+      background-color: var(--primary-blue);
+      color: var(--white);
+    }
+
+    table th, table td {
+      padding: 12px 16px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    table tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    /* Chart container */
+    .chart-container {
+      background: var(--white);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(42, 93, 159, 0.15);
+      max-width: 800px;
+      margin: 0 auto 64px;
+      max-height: 400px;
+    }
+
+    /* Announcements */
+    .announcements {
+      background: var(--soft-yellow);
+      padding: 24px;
+      border-radius: 12px;
+      max-width: 800px;
+      margin: 0 auto 64px;
+      box-shadow: 0 4px 12px rgba(242, 201, 76, 0.3);
+    }
+
+    .announcements h2 {
+      margin-top: 0;
+      color: var(--dark-charcoal);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .dashboard-cards {
+        flex-direction: column;
+      }
+
+      .card {
+        width: 100%;
+      }
+
+      .chart-container, .announcements {
+        max-width: 100%;
+      }
+    }

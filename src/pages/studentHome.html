@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Dashboard - Shiv Jyoti International School</title>
+  
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../css/studentDashboard.css">
+</head>
+<body>
+  <nav>
+        <div class="nav-logo-container">
+            <img class="navbar-logo" src="../images/school-solid-full.svg" alt="School Logo">
+            <a href="index.html" target="_blank" rel="noopener noreferrer">Shiv Jyoti International School</a>
+        </div>
+    
+        <div style="display: flex; align-items: center;">
+            <ul class="nav-links">
+                <li><a href="./studentProfile.html">Students</a></li>
+                <li><a href="./teacherProfile.html">Teacher</a></li>
+                <li><a href="./staffProfile.html">Staff</a></li>
+            </ul>
+            <img class="navbar-logo nav-user-icon" src="../images/xmark-solid-full.svg" alt="User Icon">
+        </div>
+    </nav>
+
+  <main>
+    <h1>Welcome, Hassan!</h1>
+
+    <section class="dashboard-cards" aria-label="Student overview">
+      <div class="card" role="region" aria-labelledby="fees-title">
+        <h2 id="fees-title">Fees Status</h2>
+        <p><strong>Paid:</strong> ₹40,000</p>
+        <p><strong>Due:</strong> ₹10,000</p>
+        <p>Last payment: 10 Aug 2025</p>
+      </div>
+
+      <div class="card" role="region" aria-labelledby="attendance-title">
+        <h2 id="attendance-title">Attendance</h2>
+        <p><strong>Present:</strong> 88%</p>
+        <p><strong>Absent:</strong> 12%</p>
+        <p>Last updated: Today</p>
+      </div>
+
+      <div class="card" role="region" aria-labelledby="grade-title">
+        <h2 id="grade-title">Overall Grade</h2>
+        <p>Percentage: 85%</p>
+        <p>Grade: A</p>
+        <p>Semester: 2</p>
+      </div>
+    </section>
+
+    <section class="grades-section" aria-label="Grades">
+      <h2>Grades by Subject</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Marks Obtained</th>
+            <th>Maximum Marks</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Mathematics</td><td>88</td><td>100</td><td>A</td></tr>
+          <tr><td>Science</td><td>82</td><td>100</td><td>B+</td></tr>
+          <tr><td>English</td><td>91</td><td>100</td><td>A+</td></tr>
+          <tr><td>Social Studies</td><td>79</td><td>100</td><td>B</td></tr>
+          <tr><td>Hindi</td><td>85</td><td>100</td><td>A</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="chart-container" aria-label="Subject marks chart">
+      <h2>Subject vs Marks</h2>
+      <canvas id="marksChart" aria-describedby="chartDesc"></canvas>
+      <p id="chartDesc" hidden>The bar chart displays marks obtained in various subjects.</p>
+    </section>
+
+    <section class="announcements" aria-label="Announcements and upcoming events">
+      <h2>Announcements</h2>
+      <ul>
+        <li>Next semester exams start on 15th October.</li>
+        <li>Parent-Teacher meeting scheduled on 5th November.</li>
+        <li>Fee payment deadline extended to 30th September.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    const ctx = document.getElementById('marksChart').getContext('2d');
+    const marksChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Mathematics', 'Science', 'English', 'Social Studies', 'Hindi'],
+        datasets: [{
+          label: 'Marks Obtained',
+          data: [88, 82, 91, 79, 85],
+          backgroundColor: 'rgba(42, 93, 159, 0.7)',
+          borderColor: 'rgba(42, 93, 159, 1)',
+          borderWidth: 1,
+          borderRadius: 6,
+          maxBarThickness: 50,
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100,
+            ticks: {
+              stepSize: 10,
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            enabled: true
+          }
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+      }
+    });
+  </script>
+</body>
+</html>
